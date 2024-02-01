@@ -23,6 +23,7 @@ g.loaded_node_provider = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.smarttab = true
+opt.smartindent = true
 opt.expandtab = true -- Ставим табы пробелами
 opt.softtabstop = 4 -- 4 пробела в табе
 opt.backspace = "indent,eol,start"
@@ -109,11 +110,3 @@ g.vsnip_snippet_dir = "~/.config/nvim/vsnip"
 -- TODO
 require("todo-comments").setup()
 
--- Option 3: treesitter as a main provider instead
--- Only depend on `nvim-treesitter/queries/filetype/folds.scm`,
--- performance and stability are better than `foldmethod=nvim_treesitter#foldexpr()`
-require("ufo").setup({
-    provider_selector = function(bufnr, filetype, buftype)
-        return {"treesitter", "indent"}
-    end
-})
