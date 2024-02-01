@@ -150,7 +150,7 @@ lspconfig.lua_ls.setup({
     capabilities = capabilities
 })
 lspconfig.cssls.setup({
-    filetypes = {'lua'},
+    filetypes = {'css'},
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities
