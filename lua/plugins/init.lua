@@ -9,7 +9,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    -- Пакетные менеджеры
+    -- Пакетный менеджер
     {
         "williamboman/mason.nvim",
         opts = {
@@ -19,18 +19,18 @@ require("lazy").setup({
             }
         }
     }, {"williamboman/mason-lspconfig.nvim", opts = nil},
-    -- Многофункциональный парсер
-    "nvim-treesitter/nvim-treesitter", -- Поддержа blade
-    "jwalton512/vim-blade", -- Автодополнялки
-    "neovim/nvim-lspconfig", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline", "hrsh7th/nvim-cmp",
-    "hrsh7th/cmp-vsnip", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", {
+    "nvim-treesitter/nvim-treesitter", -- Парсер для доп подсветки
+    "jwalton512/vim-blade", -- Поддержа blade
+    "neovim/nvim-lspconfig", -- Автодополнялки
+    "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer", "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline", "hrsh7th/nvim-cmp", "hrsh7th/cmp-vsnip",
+    "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", {
         "Exafunction/codeium.nvim",
         dependencies = {"nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp"},
         config = function() require("codeium").setup({}) end
-    }, "rafamadriz/friendly-snippets", -- Форматирование
-    "nvim-lua/plenary.nvim", "jose-elias-alvarez/null-ls.nvim",
-    "sbdchd/neoformat",
+    }, "rafamadriz/friendly-snippets", -- Библиотека сниппетов
+    "nvim-lua/plenary.nvim", -- Форматирование
+    "jose-elias-alvarez/null-ls.nvim", "sbdchd/neoformat",
     -- Автозакрытие парных элементов
     "hrsh7th/nvim-insx",
     -- Навигация по файлу в отдельном меню
@@ -44,8 +44,7 @@ require("lazy").setup({
         opts = {
             -- Your setup opts here
         }
-    }, -- Цветовые схемы
-    {"catppuccin/nvim", name = "catppuccin"},
+    }, {"catppuccin/nvim", name = "catppuccin"}, -- Цветовые схемы
     -- Отображние уровня отступов чёрточками
     {"lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {}},
     -- Дерево каталогов
@@ -86,21 +85,16 @@ require("lazy").setup({
                 end
             end
         end
-    }, -- Комментарии через gc
-    {
+    }, { -- Комментарии через gc
         "numToStr/Comment.nvim",
         config = function() require("Comment").setup() end
-    }, -- Нижняя информационная панель
-    {"nvim-lualine/lualine.nvim"},
-    -- Плагин для "оборачивания" в символы
-    "tpope/vim-surround", "tpope/vim-repeat", -- Ставит ; и ,
-    "lfilho/cosco.vim", -- Поиск по проекту
-    {
+    }, {"nvim-lualine/lualine.nvim"}, -- Нижняя информационная панель
+    "lfilho/cosco.vim", -- Ставит ; и ,
+    { -- Поиск по проекту
         "nvim-telescope/telescope.nvim",
         tag = "0.1.5",
         dependencies = {"nvim-lua/plenary.nvim"}
-    }, -- Поддержка множества курсоров
-    {
+    }, { -- Поддержка множества курсоров
         "smoka7/multicursors.nvim",
         event = "VeryLazy",
         dependencies = {'smoka7/hydra.nvim'},
@@ -117,16 +111,12 @@ require("lazy").setup({
                 desc = 'Create a selection for selected text or word under the cursor'
             }
         }
-    }, -- Интеграция с git
-    "lewis6991/gitsigns.nvim",
-    -- Отображение цветов по кодам
-    "norcalli/nvim-colorizer.lua",
-    -- Подсветка одинаковых слов
-    "RRethy/vim-illuminate",
-    -- Иконки для автодополнения
-    "onsails/lspkind.nvim", -- Notifications
-    "rcarriga/nvim-notify", -- Подсветка TODO
-    {"folke/todo-comments.nvim", dependencies = {{"nvim-lua/plenary.nvim"}}},
+    }, "lewis6991/gitsigns.nvim", -- Интеграция с git
+    "norcalli/nvim-colorizer.lua", -- Отображение цветов по кодам
+    "RRethy/vim-illuminate", -- Подсветка одинаковых слов
+    "onsails/lspkind.nvim", -- Иконки для автодополнения
+    "rcarriga/nvim-notify", -- Notifications
+    {"folke/todo-comments.nvim", dependencies = {{"nvim-lua/plenary.nvim"}}}, -- Подсветка TODO
     -- Folds
     {"kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async"},
     -- Подсветка ошибок
@@ -138,5 +128,6 @@ require("lazy").setup({
             -- or leave it empty to use the default settings
             -- refer to the configuration section below
         }
-    }
+    }, {'echasnovski/mini.clue', version = '*'}, -- Подсказки комбинаций клавиш
+    {'echasnovski/mini.surround', version = '*'} -- Оборачивание элементов символами
 })
