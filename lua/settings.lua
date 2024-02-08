@@ -6,7 +6,6 @@ local cmd = vim.cmd
 cmd.filetype("off") -- required
 opt.compatible = false -- be iMproved, required
 
-o.updatetime = 300
 o.incsearch = false
 vim.wo.signcolumn = "yes"
 opt.ttimeoutlen = 0
@@ -42,15 +41,6 @@ opt.termguicolors = true
 
 -- Кодировка терминала
 opt.termencoding = "utf-8"
-
--- Font
-opt.guifont = "FiraCode Nerd Font"
-
--- Style
-require("catppuccin").setup({
-    flavour = "mocha" -- latte, frappe, macchiato, mocha
-})
-cmd.colorscheme("catppuccin")
 
 -- Включить поддержку мыши
 opt.mouse = "a"
@@ -91,22 +81,5 @@ o.foldlevel = 99
 o.foldlevelstart = 99
 o.foldenable = true
 
--- Lualine
-require("lualine").setup({options = {theme = "catppuccin"}})
-
--- Mason
-require("mason").setup()
-require("mason-lspconfig").setup()
-
--- Git integration
-require("gitsigns").setup()
-
--- Colorizer
-require("colorizer").setup()
-
 -- Vsnip
 g.vsnip_snippet_dir = "~/.config/nvim/vsnip"
-
--- TODO
-require("todo-comments").setup()
-

@@ -20,18 +20,15 @@ require("lazy").setup({
         }
     }, {"williamboman/mason-lspconfig.nvim", opts = nil},
     -- Многофункциональный парсер
-    "nvim-treesitter/nvim-treesitter",
-    -- Поддержа blade
-    "jwalton512/vim-blade",
-    -- Автодополнялки
+    "nvim-treesitter/nvim-treesitter", -- Поддержа blade
+    "jwalton512/vim-blade", -- Автодополнялки
     "neovim/nvim-lspconfig", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path", "hrsh7th/cmp-cmdline", "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-vsnip", "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ", {
         "Exafunction/codeium.nvim",
         dependencies = {"nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp"},
         config = function() require("codeium").setup({}) end
-    }, "rafamadriz/friendly-snippets",
-    -- Форматирование
+    }, "rafamadriz/friendly-snippets", -- Форматирование
     "nvim-lua/plenary.nvim", "jose-elias-alvarez/null-ls.nvim",
     "sbdchd/neoformat",
     -- Автозакрытие парных элементов
@@ -47,8 +44,7 @@ require("lazy").setup({
         opts = {
             -- Your setup opts here
         }
-    },
-    -- Цветовые схемы
+    }, -- Цветовые схемы
     {"catppuccin/nvim", name = "catppuccin"},
     -- Отображние уровня отступов чёрточками
     {"lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {}},
