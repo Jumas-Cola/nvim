@@ -6,6 +6,10 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
+local autocmd = vim.api.nvim_create_autocmd
+local augroup_illuminate = vim.api.nvim_create_augroup("Illuminate",
+                                                       {clear = true})
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -32,6 +36,23 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
     vim.keymap.set("n", "<space>f",
                    function() vim.lsp.buf.format({async = true}) end, bufopts)
+
+    -- Подсветка одинаковых переменных
+    if client.supports_method('textDocument/documentHighlight') then
+        autocmd({"CursorHold", "CursorHoldI"}, {
+            pattern = "*",
+            group = augroup_illuminate,
+            desc = "Подсветка одинаковых слов",
+            command = "lua vim.lsp.buf.document_highlight()"
+        })
+
+        autocmd({"CursorMoved"}, {
+            pattern = "*",
+            group = augroup_illuminate,
+            desc = "Очистка подсветки одинаковых слов",
+            command = "lua vim.lsp.buf.clear_references()"
+        })
+    end
 end
 
 local lsp_flags = {
