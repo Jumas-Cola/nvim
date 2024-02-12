@@ -14,8 +14,14 @@ require("lazy").setup({
         "williamboman/mason.nvim",
         opts = {
             ensure_installed = {
-                "stylua", "shfmt"
-                -- "flake8",
+                "stylua", "shfmt", "autopep8", "blade-formatter",
+                "css-lsp cssls", "emmet-ls emmet_ls", "eslint-lsp eslint",
+                "gopls", "html-lsp html", "intelephense", "isort",
+                "json-lsp jsonls", "lua-language-server lua_ls", "luaformatter",
+                "php-cs-fixer", "phpactor", "phpcs", "prettierd", "psalm",
+                "pyright", "shfmt", "sql-formatter", "sqlfluff", "sqlls",
+                "stylua", "typescript-language-server tsserver",
+                "vue-language-server volar", "yaml-language-server yamlls"
             }
         }
     }, {"williamboman/mason-lspconfig.nvim", opts = nil},
