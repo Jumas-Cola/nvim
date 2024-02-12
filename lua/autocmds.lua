@@ -1,5 +1,7 @@
 local autocmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup("AutoSave", {clear = true})
+local augroup_autosave = vim.api.nvim_create_augroup("AutoSave", {clear = true})
+local augroup_illuminate = vim.api.nvim_create_augroup("Illuminate",
+                                                       {clear = true})
 local keymap = vim.keymap
 
 autocmd("FileType", {
@@ -13,9 +15,23 @@ autocmd("FileType", {
 
 autocmd({"TextChanged", "TextChangedI"}, {
     pattern = "*",
-    group = augroup,
+    group = augroup_autosave,
     desc = "Автосохранение при изменении текста",
     command = "if &readonly == 0 && filereadable(bufname('%')) | silent write | endif"
+})
+
+autocmd({"CursorHold", "CursorHoldI"}, {
+    pattern = "*",
+    group = augroup_illuminate,
+    desc = "Подсветка одинаковых слов",
+    command = "lua vim.lsp.buf.document_highlight()"
+})
+
+autocmd({"CursorMoved"}, {
+    pattern = "*",
+    group = augroup_illuminate,
+    desc = "Очистка подсветки одинаковых слов",
+    command = "lua vim.lsp.buf.clear_references()"
 })
 
 autocmd("BufWritePre", {

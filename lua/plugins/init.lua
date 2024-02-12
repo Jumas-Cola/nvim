@@ -113,7 +113,6 @@ require("lazy").setup({
         }
     }, "lewis6991/gitsigns.nvim", -- Интеграция с git
     "norcalli/nvim-colorizer.lua", -- Отображение цветов по кодам
-    "RRethy/vim-illuminate", -- Подсветка одинаковых слов
     "onsails/lspkind.nvim", -- Иконки для автодополнения
     "rcarriga/nvim-notify", -- Notifications
     {"folke/todo-comments.nvim", dependencies = {{"nvim-lua/plenary.nvim"}}}, -- Подсветка TODO

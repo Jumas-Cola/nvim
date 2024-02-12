@@ -27,6 +27,9 @@ opt.expandtab = true -- Ставим табы пробелами
 opt.softtabstop = 4 -- 4 пробела в табе
 opt.backspace = "indent,eol,start"
 
+-- Время автообновления
+opt.updatetime = 250
+
 -- Оповещения по умолчанию
 vim.notify = require("notify")
 
