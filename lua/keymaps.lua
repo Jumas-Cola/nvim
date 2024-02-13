@@ -33,3 +33,6 @@ map("n", "<A-]>", ":vertical resize -1<CR>",
     {table.unpack(opts), desc = "Move splitline -1"})
 
 map("n", "<A-d>", ":tab split<CR>", {table.unpack(opts), desc = "Duplicate tab"})
+
+map("n", "<A-t>", ":below split | resize -7 | terminal<CR>",
+    {table.unpack(opts), desc = "Open terminal"})
