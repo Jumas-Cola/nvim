@@ -111,7 +111,7 @@ lspconfig.psalm.setup({
     capabilities = capabilities
 })
 lspconfig.html.setup({
-    filetypes = {'html'},
+    filetypes = {'html', 'blade'},
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities

@@ -21,7 +21,8 @@ require("lazy").setup({
                 "php-cs-fixer", "phpactor", "phpcs", "prettierd", "psalm",
                 "pyright", "shfmt", "sql-formatter", "sqlfluff", "sqlls",
                 "stylua", "typescript-language-server tsserver",
-                "vue-language-server volar", "yaml-language-server yamlls"
+                "vue-language-server volar", "yaml-language-server yamlls",
+                "html-lsp"
             }
         }
     }, {"williamboman/mason-lspconfig.nvim", opts = nil},
