@@ -86,3 +86,9 @@ o.foldenable = true
 
 -- Vsnip
 g.vsnip_snippet_dir = "~/.config/nvim/vsnip"
+
+vim.filetype.add({
+	pattern = {
+		[".*%.blade%.php"] = "blade",
+	},
+})

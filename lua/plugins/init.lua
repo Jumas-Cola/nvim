@@ -50,7 +50,6 @@ require("lazy").setup({
 	},
 	{ "williamboman/mason-lspconfig.nvim", opts = nil },
 	"nvim-treesitter/nvim-treesitter", -- Парсер для доп подсветки
-	"jwalton512/vim-blade", -- Поддержа blade
 	"neovim/nvim-lspconfig", -- Автодополнялки
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",

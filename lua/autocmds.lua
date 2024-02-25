@@ -1,5 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
-local augroup_autosave = vim.api.nvim_create_augroup("AutoSave", { clear = true })
+local augroup = vim.api.nvim_create_augroup
 local keymap = vim.keymap
 
 autocmd("FileType", {
@@ -11,6 +11,7 @@ autocmd("FileType", {
 	end,
 })
 
+local augroup_autosave = augroup("AutoSave", { clear = true })
 autocmd({ "TextChanged", "TextChangedI" }, {
 	pattern = "*",
 	group = augroup_autosave,
@@ -35,6 +36,11 @@ autocmd("FileType", {
 autocmd("FileType", {
 	pattern = { "php", "css", "javascript" },
 	callback = function()
-		keymap.set("n", "<Leader>;", "<Plug>(cosco-commaOrSemiColon)", { silent = true })
+		keymap.set(
+			"n",
+			"<Leader>;",
+			"<Cmd>CommaOrSemiColon<CR>",
+			{ noremap = true, silent = true, desc = "Auto comma or semicolon" }
+		)
 	end,
 })

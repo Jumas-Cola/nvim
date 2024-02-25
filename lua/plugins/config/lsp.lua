@@ -7,7 +7,36 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 
 local autocmd = vim.api.nvim_create_autocmd
-local augroup_illuminate = vim.api.nvim_create_augroup("Illuminate", { clear = true })
+local lspconfig = require("lspconfig")
+-- Set up lspconfig.
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local util = require("lspconfig/util")
+local path = util.path
+
+-- Подсветка одинаковых переменных
+local function highlight_symbol(event)
+	local id = vim.tbl_get(event, "data", "client_id")
+	local client = id and vim.lsp.get_client_by_id(id)
+	if client == nil or not client.supports_method("textDocument/documentHighlight") then
+		return
+	end
+
+	local group = vim.api.nvim_create_augroup("highlight_symbol", { clear = false })
+
+	vim.api.nvim_clear_autocmds({ buffer = event.buf, group = group })
+
+	vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+		group = group,
+		buffer = event.buf,
+		callback = vim.lsp.buf.document_highlight,
+	})
+
+	vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+		group = group,
+		buffer = event.buf,
+		callback = vim.lsp.buf.clear_references,
+	})
+end
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -35,35 +64,17 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>f", function()
 		vim.lsp.buf.format({ async = true })
 	end, bufopts)
-
-	-- Подсветка одинаковых переменных
-	if client.supports_method("textDocument/documentHighlight") then
-		autocmd({ "CursorHold", "CursorHoldI" }, {
-			pattern = "*",
-			group = augroup_illuminate,
-			desc = "Подсветка одинаковых слов",
-			command = "lua vim.lsp.buf.document_highlight()",
-		})
-
-		autocmd({ "CursorMoved" }, {
-			pattern = "*",
-			group = augroup_illuminate,
-			desc = "Очистка подсветки одинаковых слов",
-			command = "lua vim.lsp.buf.clear_references()",
-		})
-	end
 end
+
+autocmd("LspAttach", {
+	desc = "Setup highlight symbol",
+	callback = highlight_symbol,
+})
 
 local lsp_flags = {
 	-- This is the default in Nvim 0.7+
 	debounce_text_changes = 250,
 }
-
-local lspconfig = require("lspconfig")
--- Set up lspconfig.
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local util = require("lspconfig/util")
-local path = util.path
 
 local function get_python_path(workspace)
 	-- Use activated virtualenv.
