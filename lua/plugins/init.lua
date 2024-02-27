@@ -86,6 +86,7 @@ require("lazy").setup({
 		},
 	},
 	{ "catppuccin/nvim", name = "catppuccin" }, -- Цветовые схемы
+	"Mofiqul/dracula.nvim",
 	-- Отображние уровня отступов чёрточками
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	-- Дерево каталогов

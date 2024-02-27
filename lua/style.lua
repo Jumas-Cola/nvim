@@ -1,9 +1,11 @@
 local cmd = vim.cmd
 local opt = vim.opt
 
-require("catppuccin").setup({
-	flavour = "mocha", -- latte, frappe, macchiato, mocha
+local dracula = require("dracula")
+dracula.setup({
+	show_end_of_buffer = true, -- default false
+	italic_comment = true, -- default false
 })
-cmd.colorscheme("catppuccin")
+cmd.colorscheme("dracula")
 
 opt.guifont = "FiraCode Nerd Font"
