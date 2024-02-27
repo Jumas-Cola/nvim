@@ -71,8 +71,7 @@ require("lazy").setup({
 	"nvim-lua/plenary.nvim",
 	"nvimtools/none-ls.nvim",
 	"sbdchd/neoformat", -- Форматирование
-	-- Автозакрытие парных элементов
-	"hrsh7th/nvim-insx",
+	"hrsh7th/nvim-insx", -- Автозакрытие парных элементов
 	-- Навигация по файлу в отдельном меню
 	{
 		"hedyhli/outline.nvim",
@@ -85,8 +84,7 @@ require("lazy").setup({
 			-- Your setup opts here
 		},
 	},
-	{ "catppuccin/nvim", name = "catppuccin" }, -- Цветовые схемы
-	"Mofiqul/dracula.nvim",
+	"Mofiqul/dracula.nvim", -- Цветовые схемы
 	-- Отображние уровня отступов чёрточками
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	-- Дерево каталогов
