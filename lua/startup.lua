@@ -22,10 +22,10 @@ local function getGitStatus()
 	end
 
 	return {
-		"Git Branch: ",
+		"⎇ Git Branch",
 		branch,
 		"",
-		"Git Status: ",
+		"↪ Git Status",
 		table.unpack(statusLines),
 	}
 end
