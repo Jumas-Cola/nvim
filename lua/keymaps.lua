@@ -31,7 +31,4 @@ map("n", "<A-d>", ":tab split<CR>", { table.unpack(opts), desc = "Duplicate tab"
 
 map("n", "<A-t>", ":below split | resize -7 | terminal<CR>", { table.unpack(opts), desc = "Open terminal" })
 
--- Multiple cursors
-map("n", "<C-n>", "<Cmd>MultipleCursorsAddJumpNextMatch<CR>", { table.unpack(opts), desc = "Multiple cursors" })
-
 map("n", "<F5>", ":luafile %<CR>", { table.unpack(opts), desc = "Reload nvim config" })

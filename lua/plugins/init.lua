@@ -146,36 +146,20 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{ -- Поддержка множества курсоров
-		"brenton-leighton/multiple-cursors.nvim",
-		version = "*",
+		"smoka7/multicursors.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"smoka7/hydra.nvim",
+		},
 		opts = {},
-		lazy = false,
+		cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
 		keys = {
-			{ "<C-Down>", "<Cmd>MultipleCursorsAddDown<CR>", mode = { "n", "i" } },
-			{ "<C-j>", "<Cmd>MultipleCursorsAddDown<CR>" },
-			{ "<C-Up>", "<Cmd>MultipleCursorsAddUp<CR>", mode = { "n", "i" } },
-			{ "<C-k>", "<Cmd>MultipleCursorsAddUp<CR>" },
 			{
-				"<C-LeftMouse>",
-				"<Cmd>MultipleCursorsMouseAddDelete<CR>",
-				mode = { "n", "i" },
+				mode = { "v", "n" },
+				"<C-n>",
+				"<cmd>MCstart<cr>",
+				desc = "Create a selection for selected text or word under the cursor",
 			},
-			{
-				"<Leader>a",
-				"<Cmd>MultipleCursorsAddMatches<CR>",
-				mode = { "n", "x" },
-			},
-			{
-				"<Leader>A",
-				"<Cmd>MultipleCursorsAddMatchesV<CR>",
-				mode = { "n", "x" },
-			},
-			{
-				"<Leader>d",
-				"<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
-				mode = { "n", "x" },
-			},
-			{ "<Leader>D", "<Cmd>MultipleCursorsJumpNextMatch<CR>" },
 		},
 	},
 	"lewis6991/gitsigns.nvim", -- Интеграция с git

@@ -217,7 +217,7 @@ lspconfig.emmet_ls.setup({
 		"pug",
 		"typescriptreact",
 		"vue",
-		"php",
+		"blade",
 	},
 	init_options = {
 		html = {
