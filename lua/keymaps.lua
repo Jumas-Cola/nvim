@@ -1,9 +1,6 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-map("n", "<C-N>", ":bnext<CR>", opts)
-map("n", "<C-P>", ":bprev<CR>", opts)
-
 -- Neotree
 map("n", "<Leader>t", ":Neotree toggle<CR>", { table.unpack(opts), desc = "Toggle Neotree" })
 
