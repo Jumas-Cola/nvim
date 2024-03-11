@@ -18,7 +18,6 @@ require("lazy").setup({
 		opts = {
 			ensure_installed = {
 				"stylua",
-				"shfmt",
 				"autopep8",
 				"blade-formatter",
 				"css-lsp cssls",
@@ -44,7 +43,6 @@ require("lazy").setup({
 				"typescript-language-server tsserver",
 				"vue-language-server volar",
 				"yaml-language-server yamlls",
-				"html-lsp",
 			},
 		},
 	},
