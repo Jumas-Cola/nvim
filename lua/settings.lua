@@ -92,3 +92,8 @@ vim.filetype.add({
 		[".*%.blade%.php"] = "blade",
 	},
 })
+
+vim.diagnostic.config({
+	virtual_text = false,
+	float = { border = "single" },
+})

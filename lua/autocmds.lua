@@ -44,3 +44,10 @@ autocmd("FileType", {
 		)
 	end,
 })
+
+-- Show line diagnostics automatically in hover window
+autocmd({ "CursorHold", "CursorHoldI" }, {
+	callback = function()
+		vim.diagnostic.open_float(nil, { focus = false })
+	end,
+})
