@@ -82,7 +82,7 @@ require("lazy").setup({
 			-- Your setup opts here
 		},
 	},
-	"Mofiqul/dracula.nvim", -- Цветовые схемы
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- Цветовые схемы
 	-- Отображние уровня отступов чёрточками
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	-- Дерево каталогов
