@@ -112,8 +112,8 @@ lspconfig.pyright.setup({
 	flags = lsp_flags,
 	capabilities = capabilities,
 })
--- lspconfig.phpactor.setup({
-lspconfig.intelephense.setup({
+-- lspconfig.intelephense.setup({
+lspconfig.phpactor.setup({
 	filetypes = { "php" },
 	on_attach = on_attach,
 	flags = lsp_flags,
