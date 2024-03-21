@@ -21,6 +21,7 @@ require("mason-lspconfig").setup({
 		"pyright",
 		"sqlls",
 		"tsserver",
+		"eslint",
 		"volar",
 		"yamlls",
 	},

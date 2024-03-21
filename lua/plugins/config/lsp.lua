@@ -143,7 +143,14 @@ lspconfig.eslint.setup({
 	capabilities = capabilities,
 })
 lspconfig.tsserver.setup({
-	filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+	filetypes = {
+		"javascript",
+		"javascriptreact",
+		"javascript.jsx",
+		"typescript",
+		"typescriptreact",
+		"typescript.tsx",
+	},
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
