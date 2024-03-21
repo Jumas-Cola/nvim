@@ -66,10 +66,7 @@ local on_attach = function(client, bufnr)
 	end, bufopts)
 end
 
-autocmd("LspAttach", {
-	desc = "Setup highlight symbol",
-	callback = highlight_symbol,
-})
+autocmd("LspAttach", { desc = "Setup highlight symbol", callback = highlight_symbol })
 
 local lsp_flags = {
 	-- This is the default in Nvim 0.7+
@@ -140,6 +137,7 @@ lspconfig.eslint.setup({
 		"vue",
 		"json",
 	},
+	root_dir = lspconfig.util.root_pattern("package.json", "package-lock.json"),
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
