@@ -197,7 +197,17 @@ lspconfig.lua_ls.setup({
 	on_attach = on_attach,
 	flags = lsp_flags,
 	capabilities = capabilities,
-	settings = { Lua = { diagnostics = { globals = { "vim" } } } },
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = {
+					"vim",
+					"describe",
+					"it",
+				},
+			},
+		},
+	},
 })
 lspconfig.cssls.setup({
 	filetypes = { "css", "scss", "sass" },
